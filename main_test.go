@@ -18,6 +18,18 @@ func TestCreatePhoneBook(t *testing.T) {
 			want:     map[string]string{},
 		},
 		{
+			name:     "Only phone number",
+			names:    []string{""},
+			phonenum: []string{"+37129655030"},
+			want:     map[string]string{"": "+37129655030"},
+		},
+		{
+			name:     "Only name",
+			names:    []string{"Vova"},
+			phonenum: []string{""},
+			want:     map[string]string{"Vova": ""},
+		},
+		{
 			name:     "one contact",
 			names:    []string{"tony stark"},
 			phonenum: []string{"+79122773413"},
@@ -57,7 +69,7 @@ func TestCreatePhoneBook(t *testing.T) {
 			name:     "example which was given",
 			names:    []string{"Alina", "Deniss B", "Antons", "Alina", "Antons"},
 			phonenum: []string{"+37126017505", "+37127785804", "+37123622588", "+37126505719", "+37128852154"},
-			want:     map[string]string{"Alina": "+37126505719", "Antons": "+37128852154", "Deniss B": "+37127785804"},
+			want:     map[string]string{"Alina": "+37126017505", "Antons": "+37123622588", "Deniss B": "+37127785804"},
 		},
 		{
 			name:     "spaces before the name",
