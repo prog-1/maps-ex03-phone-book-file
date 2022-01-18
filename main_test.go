@@ -39,6 +39,17 @@ func TestPhonebook(t *testing.T) {
 			want:    map[string]string{},
 		},
 		{
+			name:    "empty number",
+			names:   []string{"Alina"},
+			numbers: []string{""},
+			want:    map[string]string{"Alina": ""},
+		}, {
+			name:    "empty name",
+			names:   []string{""},
+			numbers: []string{"+37126017505"},
+			want:    map[string]string{"": "+37126017505"},
+		},
+		{
 			name:    "3 uniqe contacts",
 			names:   []string{"Alina", "Deniss B", "Antons"},
 			numbers: []string{"+37126017505", "+37127785804", "+37123622588"},
