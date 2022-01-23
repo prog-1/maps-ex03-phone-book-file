@@ -20,8 +20,8 @@ func TestCreatePhoneBook(t *testing.T) {
 		{
 			name:     "Only phone number",
 			names:    []string{""},
-			phonenum: []string{"+37129655030"},
-			want:     map[string]string{"": "+37129655030"},
+			phonenum: []string{"+3712963883830"},
+			want:     map[string]string{"": "+3712963883830"},
 		},
 		{
 			name:     "Only name",
