@@ -1,5 +1,7 @@
 package main
 
+import "testing"
+
 func TestCreatePhoneBook(t *testing.T) {
 	for _, tc := range []struct {
 		names   []string
@@ -7,9 +9,24 @@ func TestCreatePhoneBook(t *testing.T) {
 		want    map[string]string
 	}{
 		{
+			[]string{""},
+			[]string{""},
+			map[string]string{"": ""},
+		},
+		{
+			[]string{"Artur"},
+			[]string{""},
+			map[string]string{"Artur": ""},
+		},
+		{
+			[]string{""},
+			[]string{"+1234567890"},
+			map[string]string{"": "+1234567890"},
+		},
+		{
 			[]string{"Alina", "Deniss B", "Antons", "Alina", "Antons"},
 			[]string{"+37126017505", "+37127785804", "+37123622588", "+37126505719", "+37128852154"},
-			map[string]string{"Alina:+37126017505", "Antons:+37123622588", "Deniss B:+37127785804"},
+			map[string]string{"Alina": "+37126017505", "Antons": "+37123622588", "Deniss B": "+37127785804"},
 		},
 		{
 			[]string{},
